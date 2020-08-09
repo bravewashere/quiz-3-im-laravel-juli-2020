@@ -11,9 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+Route::get('/', 'ProyekController@gambar');
+Route::get('/proyek', 'ProyekController@proyek');
+Route::get('/proyek/create', 'ProyekController@create');
+Route::post('/proyek', 'ProyekController@store');
+
+Route::get('/proyek/{id}/daftarkan-staff', 'ProyekController@show');
+Route::post('/proyek/{id}/daftarkan-staff', 'ProyekController@s');
+
+Route::get('/proyek/{id}/edit', 'ProyekController@edit');
+Route::put('/proyek/{id}', 'ProyekController@editsimpan');
+Route::delete('/proyek/{id}', 'ProyekController@hapus');
+
 
 Route::get('/items/create', 'ItemController@create'); // menampilkan halaman form
 Route::post('/items', 'ItemController@store'); // menyimpan data
